@@ -3,7 +3,7 @@ using ZenithHealingCenter.Data.Enums;
 
 namespace ZenithHealingCenter.Models
 {
-    public class MedicalPackages
+    public class MedicalPackage
     {
         [Key] public int Id { get; set; }
 
