@@ -12,6 +12,8 @@ namespace ZenithHealingCenter.Models
 
         public Specializare SpecializareDoctor { get; set; }
 
+        public string ImageURL { get; set; }
+
         // Relationships
         public List<MedicalPackage> MedicalPackages { get; set; }
     }
