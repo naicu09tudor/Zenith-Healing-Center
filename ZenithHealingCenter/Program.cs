@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ZenithHealingCenter.Data;
+using ZenithHealingCenter.Data.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString
                 ("DefaultConnectionString")));
+// services
+builder.Services.AddScoped<IDoctorsService, DoctorsService>();
 
 builder.Services.AddControllersWithViews();
 

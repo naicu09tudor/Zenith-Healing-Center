@@ -1,20 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ZenithHealingCenter.Data;
+using ZenithHealingCenter.Data.Services;
 
 namespace ZenithHealingCenter.Controllers
 {
     public class DoctorsController : Controller
     {
-        private readonly AppDbContext _context;
-        public DoctorsController(AppDbContext context)
+        private readonly IDoctorsService _service;
+        public DoctorsController(IDoctorsService service)
         {
-            _context = context;
+            _service = service;
         }
 
-        public IActionResult Index()
+        public async Task< IActionResult>Index()
         {
-            var allDoctors = _context.Doctors.ToList();
+            var allDoctors = await _service.GetAll();
             return View(allDoctors);
         }
     }

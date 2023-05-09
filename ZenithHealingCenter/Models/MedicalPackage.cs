@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using ZenithHealingCenter.Data.Enums;
 
 namespace ZenithHealingCenter.Models
@@ -17,7 +18,15 @@ namespace ZenithHealingCenter.Models
 
         public Specializare SpecializarePachet { get; set; }
 
-        //
+        //Cabinets
+        public int CabinetId { get; set; }
+        [ForeignKey("CabinetId")]
+        public Cabinet Cabinet { get; set; }
+
+        //Doctors
+        public int DoctorId { get; set; }
+        [ForeignKey("DoctorId")]
+        public Doctor Doctor { get; set; }
 
     }
 }
