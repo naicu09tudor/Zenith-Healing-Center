@@ -15,7 +15,7 @@ namespace ZenithHealingCenter.Controllers
         public async Task<IActionResult> Index()
         {
             var allCabinets = await _context.Cabinets.ToListAsync();
-            return View();
+            return View(allCabinets);
         }
     }
 }

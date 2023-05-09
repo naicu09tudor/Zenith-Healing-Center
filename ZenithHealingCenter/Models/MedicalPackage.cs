@@ -17,5 +17,7 @@ namespace ZenithHealingCenter.Models
 
         public Specializare SpecializarePachet { get; set; }
 
+        //
+
     }
 }

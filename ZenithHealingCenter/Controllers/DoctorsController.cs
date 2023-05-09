@@ -15,7 +15,7 @@ namespace ZenithHealingCenter.Controllers
         public IActionResult Index()
         {
             var allDoctors = _context.Doctors.ToList();
-            return View();
+            return View(allDoctors);
         }
     }
 }

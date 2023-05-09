@@ -8,10 +8,13 @@ namespace ZenithHealingCenter.Models
         [Key]
         public int Id { get; set; }
 
+        [Display(Name = "FullName")]
         public string FullName {  get; set; }
 
+        [Display(Name = "Specializare Doctor")]
         public Specializare SpecializareDoctor { get; set; }
 
+        [Display(Name = "Poza de Profil")]
         public string ImageURL { get; set; }
 
         // Relationships
