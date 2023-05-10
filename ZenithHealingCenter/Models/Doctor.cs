@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using ZenithHealingCenter.Data.Base;
 using ZenithHealingCenter.Data.Enums;
 
 namespace ZenithHealingCenter.Models
 {
-    public class Doctor
+    public class Doctor:IEntityBase
     {
         [Key]
         public int Id { get; set; }

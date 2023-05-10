@@ -63,7 +63,8 @@ namespace ZenithHealingCenter.Controllers
             await _service.UpdateAsync(id,doctor);
             return RedirectToAction(nameof(Index));
         }
-        //dELETE/1
+
+        //Delete
         public async Task<IActionResult> Delete(int id)
         {
 

@@ -10,6 +10,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
                 ("DefaultConnectionString")));
 // services
 builder.Services.AddScoped<IDoctorsService, DoctorsService>();
+builder.Services.AddScoped<ICabinetsService, CabinetsService>();
 
 builder.Services.AddControllersWithViews();
 

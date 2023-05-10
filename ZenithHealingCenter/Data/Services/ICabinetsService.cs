@@ -3,8 +3,7 @@ using ZenithHealingCenter.Models;
 
 namespace ZenithHealingCenter.Data.Services
 {
-    public interface IDoctorsService:IEntityBaseRepository<Doctor>
+    public interface ICabinetsService:IEntityBaseRepository<Cabinet>
     {
-       
     }
 }
