@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ZenithHealingCenter.Data.Base;
 using ZenithHealingCenter.Data.Enums;
 
 namespace ZenithHealingCenter.Models
 {
-    public class MedicalPackage
+    public class MedicalPackage:IEntityBase
     {
         [Key] public int Id { get; set; }
 

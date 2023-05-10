@@ -47,6 +47,4 @@
     </div>
 </div>
 
- <div style="position: fixed; right: 25px; bottom: 75px;" class=" text-white">
-     <a asp-controller="Doctors" asp-action="Create" class="btn btn-success"><i class="bi bi-plus-circle"></i>Add new</a>s
- </div>
+ @await Html.PartialAsync("_CreateItem","Doctors")

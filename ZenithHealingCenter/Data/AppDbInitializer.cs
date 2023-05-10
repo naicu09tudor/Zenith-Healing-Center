@@ -62,8 +62,8 @@ namespace ZenithHealingCenter.Data
                             Price = 280,
                             ImageFile = "C:\\Users\\naicu\\Desktop\\II\\Proiect\\Screenshot 2023-05-09 193550.jpg",
                             SpecializarePachet = Enums.Specializare.Diabetologie,
-                            CabinetId = 1,
-                            DoctorId = 1
+                            CabinetId = 2,
+                            DoctorId = 2
                         }
                     }) ;
                     context.SaveChanges();

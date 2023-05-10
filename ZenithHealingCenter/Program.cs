@@ -11,6 +11,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 // services
 builder.Services.AddScoped<IDoctorsService, DoctorsService>();
 builder.Services.AddScoped<ICabinetsService, CabinetsService>();
+builder.Services.AddScoped<IMedicalPackagesService, MedicalPackagesService>();
 
 builder.Services.AddControllersWithViews();
 
