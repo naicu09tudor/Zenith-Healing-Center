@@ -23,7 +23,9 @@ namespace ZenithHealingCenter.Data.Services
         public async Task DeleteAsync(int id)
         {
             var result = await _context.Doctors.FirstOrDefaultAsync(n => n.Id == id);
-             _context.Doctors.Remove(result);
+#pragma warning disable CS8604 // Possible null reference argument.
+            _context.Doctors.Remove(result);
+#pragma warning restore CS8604 // Possible null reference argument.
             await _context.SaveChangesAsync();
         }
 
@@ -36,7 +38,9 @@ namespace ZenithHealingCenter.Data.Services
         public async Task<Doctor> GetByIdAsync(int id)
         {
             var result = await _context.Doctors.FirstOrDefaultAsync(n => n.Id == id);
+#pragma warning disable CS8603 // Possible null reference return.
             return result;
+#pragma warning restore CS8603 // Possible null reference return.
         }
 
         public async Task<Doctor> UpdateAsync(int id, Doctor newDoctor)

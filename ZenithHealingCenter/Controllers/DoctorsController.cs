@@ -27,7 +27,7 @@ namespace ZenithHealingCenter.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([Bind("FullName,ImageURL,SpecializareDoctor")]Doctor doctor)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(doctor);
             }
@@ -53,12 +53,13 @@ namespace ZenithHealingCenter.Controllers
             return View(DoctorDetails);
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(int id,[Bind("Id,FullName,ImageURL,SpecializareDoctor")] Doctor doctor)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FullName,SpecializareDoctor,ImageURL")] Doctor doctor)
         {
             if (!ModelState.IsValid)
             {
                 return View(doctor);
             }
+
             await _service.UpdateAsync(id,doctor);
             return RedirectToAction(nameof(Index));
         }
@@ -78,8 +79,6 @@ namespace ZenithHealingCenter.Controllers
 
             if (DoctorDetails == null) return View("NotFound");
             await _service.DeleteAsync(id);
-
-            
             return RedirectToAction(nameof(Index));
         }
 
