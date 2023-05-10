@@ -4,11 +4,11 @@ namespace ZenithHealingCenter.Data.Services
 {
     public interface IDoctorsService
     {
-        Task<IEnumerable<Doctor>> GetAll();
-        Doctor GetById(int id);
-        void Add(Doctor doctor);
-        Doctor Update(int id, Doctor newDoctor);
+        Task<IEnumerable<Doctor>> GetAllAsync();
+        Task<Doctor> GetByIdAsync(int id);
+        Task AddAsync(Doctor doctor);
+        Task<Doctor> UpdateAsync(int id, Doctor newDoctor);
 
-        void Delete(int id);
+        Task DeleteAsync(int id);
     }
 }

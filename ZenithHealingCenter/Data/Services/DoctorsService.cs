@@ -14,30 +14,36 @@ namespace ZenithHealingCenter.Data.Services
 
 
 
-        public void Add(Doctor doctor)
+        public async Task AddAsync(Doctor doctor)
         {
-            throw new NotImplementedException();
+            await _context.Doctors.AddAsync(doctor);
+            await _context.SaveChangesAsync();
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Doctors.FirstOrDefaultAsync(n => n.Id == id);
+             _context.Doctors.Remove(result);
+            await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Doctor>> GetAll()
+        public async Task<IEnumerable<Doctor>> GetAllAsync()
         {
             var result = await _context.Doctors.ToListAsync();
             return result;
         }
 
-        public Doctor GetById(int id)
+        public async Task<Doctor> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Doctors.FirstOrDefaultAsync(n => n.Id == id);
+            return result;
         }
 
-        public Doctor Update(int id, Doctor newDoctor)
+        public async Task<Doctor> UpdateAsync(int id, Doctor newDoctor)
         {
-            throw new NotImplementedException();
+            _context.Update(newDoctor);
+            await _context.SaveChangesAsync();
+            return newDoctor;
         }
     }
 }
