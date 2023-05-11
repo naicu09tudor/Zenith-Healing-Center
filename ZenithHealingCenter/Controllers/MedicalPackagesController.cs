@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ZenithHealingCenter.Data;
 using ZenithHealingCenter.Data.Services;
+using ZenithHealingCenter.Data.Static;
 using ZenithHealingCenter.Data.ViewModels;
 using ZenithHealingCenter.Models;
 
 namespace ZenithHealingCenter.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class MedicalPackagesController : Controller
     {
         private readonly IMedicalPackagesService _service;
@@ -16,11 +19,13 @@ namespace ZenithHealingCenter.Controllers
             _service = service;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var allMedicalPackages = await _service.GetAllAsync(n => n.Cabinet);
             return View(allMedicalPackages);
         }
+        [AllowAnonymous]
         public async Task<IActionResult> Filter(string searchString)
         {
             var allMedicalPackages = await _service.GetAllAsync(n => n.Cabinet);
@@ -33,14 +38,15 @@ namespace ZenithHealingCenter.Controllers
             return View("Index", allMedicalPackages);
         }
 
-        //Get: MoviesDetails
+        //Get: MedicalPackage Details
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var MedicalPackageDetail = await _service.GetMedicalPackagesByIdAsync(id);
             return View(MedicalPackageDetail);
         }
 
-        //get: movies/create
+        //get: MedicalPackage/create
         public async Task<IActionResult> Create()
         {
             var MPDropdownsData = await _service.GetNewMPValues();

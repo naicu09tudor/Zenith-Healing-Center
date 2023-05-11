@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ZenithHealingCenter.Data;
 using ZenithHealingCenter.Data.Services;
+using ZenithHealingCenter.Data.Static;
 using ZenithHealingCenter.Models;
 
 namespace ZenithHealingCenter.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class CabinetsController : Controller
     {
 
@@ -14,6 +17,7 @@ namespace ZenithHealingCenter.Controllers
         {
             _service = service;
         }
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var allCabinets = await _service.GetAllAsync();
@@ -36,6 +40,7 @@ namespace ZenithHealingCenter.Controllers
         }
 
         //Get: Cabinet/Detail/1
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             Cabinet CabinetDetails = await _service.GetByIdAsync(id);

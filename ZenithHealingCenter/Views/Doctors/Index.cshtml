@@ -14,9 +14,9 @@
                     <th>@Html.DisplayNameFor(model => model.FullName)</th>
                     <th>@Html.DisplayNameFor(model => model.SpecializareDoctor)</th>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                                    {
-                    <th>Actions</th>
-                                    }
+                    {
+                        <th>Actions</th>
+                    }
                 </tr>
             </thead>
             <tbody>

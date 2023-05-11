@@ -1,12 +1,15 @@
 ﻿using eTickets.Data.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using ZenithHealingCenter.Data.Cart;
 using ZenithHealingCenter.Data.Services;
+using ZenithHealingCenter.Data.Static;
 using ZenithHealingCenter.Data.ViewModels;
 
 namespace ZenithHealingCenter.Controllers
 {
+    [Authorize]
     public class OrdersController : Controller
     {
         private readonly IMedicalPackagesService _medicalPackagesService;

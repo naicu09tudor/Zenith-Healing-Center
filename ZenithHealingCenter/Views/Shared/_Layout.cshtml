@@ -30,17 +30,10 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="MedicalPackages" asp-action="Index"><i class="bi bi-truck-flatbed"></i>MP</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="MedicalPackages" asp-action="Index"><i class="bi bi-truck-flatbed"></i>Medical Packages</a>
                             
                         </li>
-                        <li class="nav-item">
-                           
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Doctors" asp-action="Index"><i class="bi bi-life-preserver"></i>Doctors</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cabinets" asp-action="Index"><i class="bi bi-file-earmark-medical-fill"></i>Cabinete</a>
-                            
-                        </li>
+                        
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
                             <li class="nav-item dropdown">
