@@ -15,6 +15,9 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </head>
+
+
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -38,40 +41,33 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Cabinets" asp-action="Index"><i class="bi bi-file-earmark-medical-fill"></i>Cabinete</a>
                             
                         </li>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="bi bi-gear"></i> Management
+                                </a>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bi bi-gear"></i> Management
-                            </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-controller="Cabinets" asp-action="Index"><i class="bi bi-camera-reels"></i> Cabinete</a>
+                                    <a class="dropdown-item" asp-controller="Doctors" asp-action="Index"><i class="bi bi-headset"></i> Doctori</a>
 
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-controller="Cabinets" asp-action="Index"><i class="bi bi-camera-reels"></i> Cabinete</a>
-                                <a class="dropdown-item" asp-controller="Doctors" asp-action="Index"><i class="bi bi-headset"></i> Doctori</a>
-                             
-                            </div>
-                        </li>
+                                </div>
+                            </li>
+                        }
                     </ul>
 
                     <form class="form-inline my-2 my-lg-0" asp-controller="MedicalPackages" asp-action="Filter" style="padding-right: 25px;">
                         <input name="searchString" type="text" class="form-control" placeholder="Search for a package.." aria-label="Recipient's username" aria-describedby="button-addon2">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
                     </form>
+
                     <ul class="navbar-nav">
                         @await Component.InvokeAsync("ShoppingCartSummary")
                     </ul>
-                    @* user profile section*@
-                    <div class="dropdown">
-                        <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown" aria-expanded="flase">
-                            <i class="bi bi-person-badge"></i> Hello
-                        </button>
-                        <ul class="dropdown-menu" aria--labelby="profile-btn">
-                            <li>
-                                <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
-                                    <i class="bg-info bi-list"></i> Orders
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+
+                  <partial name="_Identity.cshtml" />
+                    
                 </div>
             </div>
         </nav>
