@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+   
+     
+    
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ZenithHealingCenter</title>
@@ -14,6 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 
@@ -22,7 +26,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="MedicalPackages" asp-action="Index">Zenith Healing Center</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Zenith Healing Center</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,7 +34,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="MedicalPackages" asp-action="Index"><i class="bi bi-truck-flatbed"></i>Medical Packages</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="MedicalPackages" asp-action="Index"><i class="bi bi-file-medical"></i>Ofertele noastre</a>
                             
                         </li>
                         
@@ -42,8 +46,8 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" asp-controller="Cabinets" asp-action="Index"><i class="bi bi-camera-reels"></i> Cabinete</a>
-                                    <a class="dropdown-item" asp-controller="Doctors" asp-action="Index"><i class="bi bi-headset"></i> Doctori</a>
+                                    <a class="dropdown-item" asp-controller="Cabinets" asp-action="Index"><i class="fa fa-heartbeat"></i> Cabinete</a>
+                                    <a class="dropdown-item" asp-controller="Doctors" asp-action="Index"><i class="fa fa-user-md"></i> Doctori</a>
 
                                 </div>
                             </li>
@@ -51,8 +55,12 @@
                     </ul>
 
                     <form class="form-inline my-2 my-lg-0" asp-controller="MedicalPackages" asp-action="Filter" style="padding-right: 25px;">
-                        <input name="searchString" type="text" class="form-control" placeholder="Search for a package.." aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+                        <div class="input-group">
+                            <input name="searchString" type="text" class="form-control" placeholder="Cauta un pachet.." aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+                            </div>
+                        </div>
                     </form>
 
                     <ul class="navbar-nav">
@@ -71,9 +79,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" style="clear: both;">
         <div class="container">
-            &copy; 2023 - ZenithHealingCenter 
+            &copy; 2023 - ZenithHealingCenter
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

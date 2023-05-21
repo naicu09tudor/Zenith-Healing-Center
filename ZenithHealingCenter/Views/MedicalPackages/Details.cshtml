@@ -5,70 +5,77 @@
 }
 
 <div class="row">
-   
-        <div class="col-md-8 offset-2">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-12">
-                        <div class="card-header text-white bg-info">
-                            <p class="card-text">
-                                <h5 class="card-title">
-                                    @Model.Name
-                                </h5>
-                            </p>
-                        </div>
+    <div class="col-md-8 offset-2">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-header text-white bg-danger">
+                        <!-- Change bg-info to bg-danger -->
+                        <p class="card-text">
+                            <h5 class="card-title">
+                                @Model.Name
+                            </h5>
+                        </p>
                     </div>
-                    <div class="col-md-4">
-                        <img src="@Model.ImageFile" width="100%" alt="@Model.Name">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <p class="card-text"><b>Cabinet: </b>
+                </div>
+                <div class="col-md-4">
+                    <img src="@Model.ImageFile" width="100%" alt="@Model.Name">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b>Cabinet: </b>
+                                
+                            
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
                             <a asp-controller="Cabinets" asp-action="Details" asp-route-id="@Model.CabinetId">
-                                @Model.Cabinet.Name
+                                    @Model.Cabinet.Name
                             </a>
-                            </p>
-                        
-                            <p class="card-text"><b>Specializare: </b>@Model.SpecializarePachet</p>
-                            <p class="card-text"><b>Descriere: </b>@Model.Description</p>
+                            }
+                            else
+                            {
+                                @Model.Cabinet.Name
+                            }
+                        </p>
+                        <p class="card-text"><b>Specializare: </b>@Model.SpecializarePachet</p>
+                        <p class="card-text"><b>Descriere: </b>@Model.Description</p>
                         <p class="card-text">
                             <b>Doctor: </b>
+                            @Model.Doctor.FullName
                             <hr />
                             <div class="row">
-
-
                                 @if (Model.Doctor != null)
                                 {
                                     var doctor = Model.Doctor;
                                     <div class="column text-center">
                                         <img class="border-info rounded-circle" src="@doctor.ImageURL" style="max-width: 150px" />
                                         <br />
-                                        <a asp-controller="Doctors" asp-action="Details" asp-route-id="@doctor.Id">@doctor.FullName</a>
+                                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                        {
+                                            <a asp-controller="Doctors" asp-action="Details" asp-route-id="@doctor.Id">@doctor.FullName</a>
+                                        }
                                     </div>
                                 }
-                                
                             </div>
                         </p>
-                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="card-footer ">
-                            <p class="card-text">
-                                <a class="btn btn-outline-primary float-right" asp-action="Index">
-                                    Back to List
-                                </a>
-                                <a class="btn btn-success text-white"
-                               asp-controller="Orders"
-                               asp-action="AddItemToShoppingCart"
-                               asp-route-id="@Model.Id">
-                                    <i class="bi bi-cart-plus"></i> Add to Cart (Price @Model.Price.ToString("c"))
-                                </a>
-                            </p>
-                        </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card-footer ">
+                        <p class="card-text">
+                            <a class="btn btn-outline-danger float-right" asp-action="Index">
+                                <!-- Change btn-outline-primary to btn-outline-danger -->
+                                Back to List
+                            </a>
+                            <a class="btn btn-danger text-white" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@Model.Id">
+                                <!-- Change btn-success to btn-danger -->
+                                <i class="bi bi-cart-plus"></i> Add to Cart (Price @Model.Price.ToString("c"))
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-    
+    </div>
 </div>
-

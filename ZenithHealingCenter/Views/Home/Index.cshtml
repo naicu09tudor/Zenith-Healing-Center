@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="StyleSheet.css"> <!-- Link către fișierul CSS, dacă ai unul -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 20px; /* Add top margin to create space */
+        }
+
+        .logo {
+            width: 400px;
+            height: 300px;
+            border: 2px solid #dc3545;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .logo:hover {
+                transform: rotate(360deg);
+            }
+
+        .slider {
+            width: 1000px;
+            height: 600px;
+            border: 1px solid red;
+            border-radius: 10px;
+            background-color: yellow;
+            margin: 50px auto; /* Add margin to create space */
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-container {
+            width: 300%; /* Increase the width to accommodate the images */
+            background-color: pink;
+            height: 100%;
+            clear: both;
+            position: absolute; /* Change position to absolute */
+            top: 0;
+            left: 0;
+            transition: left 2s;
+        }
+
+        .slide {
+            width: 33.33%; /* Adjust the width based on the number of images */
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            float: left;
+            position: relative;
+            transition: opacity 1s ease-in-out;
+        }
+
+            .slide img {
+                width: 700px;
+                height: 100%;
+                object-fit: fill; /* Maintain aspect ratio while covering the entire slide */
+                float: left;
+            }
+
+        #slide-1:target ~ .image-container {
+            left: 0;
+        }
+
+        #slide-2:target ~ .image-container {
+            left: -100%;
+        }
+
+        #slide-3:target ~ .image-container {
+            left: -200%;
+        }
+
+        .buttons {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+            .buttons a {
+                display: inline-block;
+                height: 15px;
+                width: 15px;
+                border-radius: 50px;
+                background-color: grey;
+            }
+
+        .text-box {
+            position: absolute;
+            top: 50%;
+            right: 0px;
+            transform: translateY(-50%);
+            background-color: red;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-family: "Comic Sans MS", cursive;
+            font-size: 16px;
+            line-height: 1.5;
+            width: 300px;
+            max-width: 80%;
+            height: 100%;
+        }
+
+            .text-box p {
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+
+        
+
+        .text-box h2 {
+            margin-top: 0;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    
+   
+    <header>
+        <div class="logo-container">
+            <img src="@Url.Content("~/Images/logo.jpeg")" alt="Logo" class="logo">
+            <!-- Replace "logo.png" with the path to your logo image -->
+        </div>
+    </header>
+   
+
+    <div class="slider">
+        <span id="slide-1"></span>
+        <span id="slide-2"></span>
+        <span id="slide-3"></span>
+        <div class="image-container">
+            <div class="slide">
+                <img src="@Url.Content("~/Images/doctors.jpg")" width="500" height="300" />
+                <div class="text-box">
+                    <h2>Doctori</h2>
+                    <p>Bine ai venit pe pagina noastră medicală! Suntem mândri să îți recomandăm doctorii noștri, cei mai buni din țară, cu o vastă expertiză și experiență în domeniul medical. Ei sunt profesioniști dedicați, cu o pasiune puternică pentru îngrijirea pacienților și cu rezultate remarcabile în tratarea diverselor afecțiuni. Fie că ai nevoie de un medic specialist într-un anumit domeniu sau de o echipă multidisciplinară, poți avea încredere că doctorii noștri vor acorda atenția și îngrijirea necesare pentru a-ți recăpăta sănătatea.</p>
+                    <a href="Doctors" class="btn btn-danger" style="background-color: white; color: red; border: none; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);">Afla mai multe</a>
+
+                </div>
+            </div>
+            <div class="slide">
+                <img src="@Url.Content("~/Images/cabinets.jpg")" width="500" height="300" />
+                <div class="text-box">
+                    <h2>Cabinete</h2>
+                    <p>În ceea ce privește cabinetele noastre medicale, te asigurăm că vei beneficia de cele mai noi tehnologii și echipamente de ultimă generație. Echipa noastră este dedicată să ofere servicii medicale de înaltă calitate, iar investițiile în tehnologie și echipamente moderne ne permit să fim în pas cu avansurile medicale. Astfel, vom putea efectua investigații precise și tratamente eficiente, utilizând cele mai recente instrumente și metode. Ai garanția că vei primi o îngrijire avansată și sigură într-un mediu modern și confortabil.</p>
+                    <a href="Cabinets" class="btn btn-danger" style="background-color: white; color: red; border: none; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);">Afla mai multe</a>
+
+                    
+                </div>
+            </div>
+            <div class="slide">
+                <img src="@Url.Content("~/Images/packages.jpg")" width="500" height="300" />
+                <div class="text-box">
+                    <h2>Pachete Medicale</h2>
+                    <p>
+                        În plus, pachetele noastre medicale au cel mai bun raport calitate-preț. Înțelegem că sănătatea ta este importantă, de aceea, am creat pachete medicale concepute pentru a-ți oferi beneficii complete la un preț accesibil. Fie că ai nevoie de consultații regulate, investigații sau tratamente specifice, pachetele noastre medicale sunt personalizate pentru a satisface nevoile individuale ale fiecărui pacient. Astfel, vei beneficia de servicii de calitate superioară, fără a compromite bugetul personal.
+
+                        Te invităm să descoperi oferta noastră medicală.
+                    </p>
+                    <a href="MedicalPackages" class="btn btn-danger" style="background-color: white; color: red; border: none; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);">Afla mai multe</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <a href="#slide-1"></a>
+            <a href="#slide-2"></a>
+            <a href="#slide-3"></a>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        var imgs = document.querySelectorAll('.slider img');
+        var dots = document.querySelectorAll('.dot');
+        var currentImg = 0; // index of the first image
+        const interval = 3000; // duration(speed) of the slide
+        function changeSlide(n) {
+            for (var i = 0; i < imgs.length; i++) { // reset
+                imgs[i].style.opacity = 0;
+                dots[i].className = dots[i].className.replace(' active', '');
+            }
+
+            currentImg = n;
+
+            imgs[currentImg].style.opacity = 1;
+            dots[currentImg].className += ' active';
+        }
+    </script>
+
+</body>
+</html>
+

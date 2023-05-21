@@ -3,6 +3,16 @@
 @{
     ViewData["Title"] = "List of Cabinets";
 }
+<style>
+    .header-cell {
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .actions-cell {
+        text-align: right;
+    }
+</style>
 
 <div class="row">
     <div class="col-md-8 offset-md-2">
@@ -10,11 +20,13 @@
         <table class="table">
             <thead>
                 <tr class="text-center">
-                    <th>@Html.DisplayNameFor(model => model.Name)</th>
-                    <th>@Html.DisplayNameFor(model => model.Description)</th>
+                    <th><div class="text-start">@Html.DisplayNameFor(model => model.Name)  </div></th>
+                    <th><div class="text-start">@Html.DisplayNameFor(model => model.Description)</div></th>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                     {
-                    <th>Actions</th>
+                        <th class="actions-cell">
+                            <div class="text-start">Acțiuni</div>
+                        </th>
                                     }
                 </tr>
             </thead>

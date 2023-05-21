@@ -1,4 +1,5 @@
-﻿@model Doctor
+﻿@using ZenithHealingCenter.Data.Enums;
+@model Doctor
 
 @{
     ViewData["Title"] = "Actualizeaza doctor";
@@ -7,7 +8,9 @@
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Actualizeaza doctor</h1>
+            <div class="text-center my-5">
+                <h1>Editeaza doctorul</h1>
+            </div>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
@@ -25,7 +28,7 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="SpecializareDoctor" class="control-label"></label>
-                        <input asp-for="SpecializareDoctor" class="form-control" />
+                        <select asp-for="SpecializareDoctor" class="form-control" asp-items="Html.GetEnumSelectList<Specializare>()"></select>
                         <span asp-validation-for="SpecializareDoctor" class="text-danger"></span>
                     </div>
                     <div class="form-group">

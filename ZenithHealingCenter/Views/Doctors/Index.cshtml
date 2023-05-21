@@ -3,13 +3,20 @@
 @{
     ViewData["Title"] = "List of Doctors";
 }
-
-<div class="row">
+<style>
+    .row-with-scroll {
+        max-height: calc(100vh - 150px);
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+</style>
+<div class="row-with-scroll">
+ <div class="row" style="overflow: auto;">
     <div class="col-md-8 offset-md-2">
 
         <table class="table">
             <thead>
-                <tr class="text-center">
+                <tr class="text-start">
                     <th>@Html.DisplayNameFor(model => model.ImageURL)</th>
                     <th>@Html.DisplayNameFor(model => model.FullName)</th>
                     <th>@Html.DisplayNameFor(model => model.SpecializareDoctor)</th>
@@ -51,6 +58,7 @@
         </table>
 
     </div>
+ </div>
 </div>
 
  @await Html.PartialAsync("_CreateItem","Doctors")
